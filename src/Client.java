@@ -18,6 +18,9 @@ class Client {
         }
     }
 
+    public int getClientId() {
+        return clientId;
+    }
     public void updateAppointment(int barberId, String oldTime, String newTime) {
         Barber barber = barbers.get(barberId);
         if (barber != null) {

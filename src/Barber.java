@@ -24,7 +24,6 @@ class Barber {
     }
 
     public int getBarberId() {
-        System.out.println("BarberID is " + barberId);
         return barberId;
     }
 }

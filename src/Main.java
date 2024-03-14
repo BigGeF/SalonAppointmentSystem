@@ -14,25 +14,25 @@ public class Main {
 
         //  booking an appointment
         System.out.println("Booking an appointment at 10:00 AM:");
-        client1.bookAppointment(1, "10:00 AM");
-        client1.bookAppointment(1, "10:00 AM");
+        client1.bookAppointment(barber1.getBarberId(), "10:00 AM");
+        client1.bookAppointment(barber1.getBarberId(), "10:00 AM");
         //  Should show an error
         System.out.println("Trying to book again at the same time:");
 
         //  updating an appointment
         System.out.println("Updating the appointment to 11:00 AM:");
-        client1.updateAppointment(1, "10:00 AM", "11:00 AM");
+        client1.updateAppointment(barber1.getBarberId(), "10:00 AM", "11:00 AM");
         System.out.println("Trying to update to a time that's already booked:");
-        client1.bookAppointment(1, "11:00 AM");
+        client1.bookAppointment(barber1.getBarberId(), "11:00 AM");
         // Should show an error
-        client1.updateAppointment(1, "11:00 AM", "11:00 AM");
+        client1.updateAppointment(barber1.getBarberId(), "11:00 AM", "11:00 AM");
 
         //  cancelling an appointment
         System.out.println("Cancelling the appointment at 11:00 AM:");
-        client1.cancelAppointment(1, "11:00 AM");
+        client1.cancelAppointment(barber1.getBarberId(), "11:00 AM");
         System.out.println("Trying to cancel again at the same time:");
         // Should show an error
-        client1.cancelAppointment(1, "11:00 AM");
+        client1.cancelAppointment(barber1.getBarberId(), "11:00 AM");
 
         // logout
         client1.quit();
