@@ -1,41 +1,26 @@
-+-------------------------+---------------------------------+------------------------------------------------+
-| Client Request          | Server Response                 | Description                                    |
-+-------------------------+---------------------------------+------------------------------------------------+
-| Book_appt, 12 (bID)     | find 12(bID) yes or no,         | Find this barber return if barber is           |
-|                         | create a appt for bID.          | available or not.                              |
-+-------------------------+---------------------------------+------------------------------------------------+
-| Update_appt, 12(bID)    | Cancel_appt, make a             | Cancel the current appt,                       |
-|                         | new appt.                       | reschedule a new one.                          |
-+-------------------------+---------------------------------+------------------------------------------------+
-| Cancel appointment      | Appointment canceled            | Client cancel canceled the                     |
-| with 12(bID)            |                                 | appointment                                    |
-+-------------------------+---------------------------------+------------------------------------------------+
-| QUIT                    | None                            | Clint require to end the                       |
-|                         |                                 | connection                                     |
-+-------------------------+---------------------------------+------------------------------------------------+
+| Client Request            | Server Response                          | Description                                          |
+|------------------------   |------------------------------------      |----------------------------------------------------- |
+| Book appointment, slot    | Booked slot or Slot not available        | Books an appointment if the slot is available.       |
+| Cancel appointment, slot  | Appointment canceled for slot            | Cancels the booked appointment in the specified slot.|
+| Check appointment, slot   | Slot [number] is available/not available | Checks the availability of the specified slot.       |
+| QUIT                      | (No response, connection closed)         | Client request to end the connection.                |
 
-Data Structures
-Class Barber
-Fields: int barberId
-
-Public Methods:
-boolean isAvailable(String time)
-void bookAppointment(String time)
-void cancelAppointment(String time)
-
-Class Client:
-Fields:Int clientId
+This table outlines the client requests, the corresponding server responses, and a brief description of each interaction within the salon appointment system.
+Class: Salon
+Fields:AppointmentSlot[] slots   
 Methods:
-void bookAppointment(int barberId, String time) 
-void updateAppointment(int barberId, String oldTime, String newTime) 
-void cancelAppointment(int barberId, String time) 
-void quit
+      public Salon(int size)   
+      public void bookAppointment(int slotNumber)   
+      public void cancelAppointment(int slotNumber)   
+      public boolean isAvailable(int slotNumber)   
 
-Class AppointmentManager 
-Fields: private HashSet<String> appointments
+Class: Client
+Fields:int clientId   
+
 Methods:
-public AppointmentManager()
-public boolean isAvailable(String time)
-public void bookAppointment(String time) 
-public void cancelAppointment(String time) 
-   
+   (Assumed based on context, not explicitly provided)
+      public void bookAppointment(Salon salon, int slotNumber)   
+      public void cancelAppointment(Salon salon, int slotNumber)   
+      public void checkAppointment(Salon salon, int slotNumber)   
+
+
